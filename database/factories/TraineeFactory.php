@@ -22,7 +22,6 @@ class TraineeFactory extends Factory
     public function definition()
     {
         return [
-            //=>$this->faker->sentence(),
             'name'=>$this->faker->lastName(),
             'firstname'=>$this->faker->firstName(),
             'adress'=>$this->faker->streetAddress(),
