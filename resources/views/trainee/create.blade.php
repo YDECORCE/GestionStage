@@ -110,6 +110,20 @@ Nouveau Stagiaire
                 </select>
             </div>
         </div>
+      
+          <div class="form-group">
+            <label>Sélectionner les compétences</label>
+            <div class="row">
+              @foreach ($skills as $skill)
+              <div class="col-2 my-2">
+                  <input type="checkbox" name="skills[]" value="{{$skill->id}}" class="mr-2">{{$skill->name}}
+                </div> 
+              @endforeach
+            </div>
+            
+          </div>
+
+
         <div class="d-flex justify-content-center mb-5">
             <button type="submit" class="btn btn-primary">Soumettre</button>
         </div>

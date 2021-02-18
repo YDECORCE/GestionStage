@@ -30,6 +30,7 @@ class Trainee extends Model
         'cv',
         'mobility',
         'mobilityzone',
+        'promo_id',
     ];
 
     public function promo()

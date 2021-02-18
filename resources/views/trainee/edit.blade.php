@@ -6,8 +6,6 @@ Admin| MAJ Stagiaire
 
 @section('content')
 
-
-
 <div class="container">
     <div class="row justify-content-center">
         <h1>Editer ce stagiaire</h1>
@@ -106,7 +104,7 @@ Admin| MAJ Stagiaire
                 <label>Zone de mobilité</label>
                 <select name="mobilityzone" class="form-control">
                     <option value="none" {{ $trainee->mobilityzone === "none" ? 'selected' : ''}}>Aucune</option>
-                    <option value="Dépatement" {{ $trainee->mobilityzone === "Département" ? 'selected' : ''}}>Département</option>
+                    <option value="Département" {{ $trainee->mobilityzone === "Département" ? 'selected' : ''}}>Département</option>
                     <option value="Région" {{ $trainee->mobilityzone === "Région" ? 'selected' : ''}}>Région</option>
                     <option value="Nationale" {{ $trainee->mobilityzone === "Nationale" ? 'selected' : ''}}>Nationale</option>
                     <option value="Internationale" {{ $trainee->mobilityzone === "Internationale" ? 'selected' : ''}}>Internationale</option>
@@ -114,8 +112,24 @@ Admin| MAJ Stagiaire
                 </select>
             </div>
         </div>
+                  <div class="form-group">
+            <label>Sélectionner les compétences</label>
+            <div class="row">
+              @foreach ($skills as $skill)
+              <div class="col-2 my-2">
+                  <input type="checkbox" name="skills[]" value="{{$skill->id}}" class="mr-2"
+                  @foreach ($trainee->skills as $traineeskill)
+                        @if ($traineeskill->id==$skill->id)
+                            {{'checked'}}
+                        @endif
+                    @endforeach
+                  >{{$skill->name}}
+                </div> 
+              @endforeach
+            </div>
+
         <div class="d-flex justify-content-center mb-5">
-            <button type="submit" class="btn btn-primary">Soumettre</button>
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </div>
     </form>
 </div>

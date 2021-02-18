@@ -4,6 +4,7 @@ namespace App\Manager;
 
 use App\Models\Trainee;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 Class TraineeManager
 {
@@ -23,6 +24,19 @@ Class TraineeManager
         $trainee->mobilityzone = $request->input('mobilityzone');
         $trainee->promo_id = $request->input('promo');
         $trainee->save();
+
+        $skills=$request->input('skills');
+        $idtrainee=$trainee->id;
+        $skill_trainee=[];
+        foreach ($skills as $skill=>$value)
+            {
+            array_push($skill_trainee , [
+                'skill_id' =>$value,
+                'trainee_id' =>$idtrainee
+                ]);
+            }
+           
+        $trainee->skills()->attach($skill_trainee);
 
     }
 }

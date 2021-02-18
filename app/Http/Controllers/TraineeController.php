@@ -7,6 +7,7 @@ use App\Models\Skill;
 use App\Models\Trainee;
 use Illuminate\Http\Request;
 use App\Manager\TraineeManager;
+use Illuminate\Support\Facades\DB;
 
 class TraineeController extends Controller
 {
@@ -53,6 +54,7 @@ class TraineeController extends Controller
     public function store(Request $request)
     {   
         $this->traineeManager->build(new Trainee(), $request);
+                
         return redirect()->route('trainees.index')->with('success', "Le stagiaire a été enregistré !");
     }
 
@@ -90,8 +92,10 @@ class TraineeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Trainee $trainee)
-    {
+    {   
+        $trainee->skills()->detach();
         $this->traineeManager->build($trainee, $request);
+                
         return redirect()->route('trainees.index')->with('success', "Le stagiaire a été mis à jour!!!");
     }
 

@@ -15,8 +15,19 @@ class CreateSkillTraineeTable extends Migration
     {
         Schema::create('skill_trainee', function (Blueprint $table) {
             $table->id();
-            $table->integer('skill_id')->unsigned();
-            $table->integer('trainee_id')->unsigned();
+            $table->unsignedBigInteger('skill_id');
+            $table->foreign('skill_id')
+            ->references('id')
+            ->on('skills')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('trainee_id');
+            $table->foreign('trainee_id')
+            ->references('id')
+            ->on('trainees')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
           
         });
     }
