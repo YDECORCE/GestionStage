@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Promo;
+use App\Models\Skill;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Trainee extends Model
 {
@@ -33,5 +35,10 @@ class Trainee extends Model
     public function promo()
     {
         return $this->belongsTo(Promo::class);
+    }
+
+    public function skills()
+    {
+        return $this->BelongsToMany(Skill::class);
     }
 }

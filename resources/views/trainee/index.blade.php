@@ -9,7 +9,7 @@ Admin|Stagiaires
  
     <h1 class="text-center mt-2"> Stagiaires </h1>
     <div class="d-flex justify-content-center">
-      <a class="btn btn-info my-3" href="{{route('trainees.create')}}"><i class="fas fa-user-cog mx-2"></i>Ajouter un nouveau stagiaire</a> 
+      <a class="btn btn-info my-3" href="{{ route('trainees.create') }}"><i class="fas fa-user-cog mx-2"></i>Ajouter un nouveau stagiaire</a> 
     </div>
     <table class="table table-hover">
         <thead>
@@ -26,22 +26,22 @@ Admin|Stagiaires
             @foreach ($trainees as $trainee)
             <tr class="table-light">
                 <th scope="row">{{$trainee->id}}</th>
-                <td>{{$trainee->name}}</td>
-                <td>{{ $trainee->firstname}}</td>
+                <td>{{ $trainee->name }}</td>
+                <td>{{ $trainee->firstname }}</td>
                 <td><span class="badge badge-pill badge-warning">
-                    {{$trainee->promo->year. ' / '.$trainee->promo->city}}
+                    {{ $trainee->promo->year. ' / '.$trainee->promo->city }}
                 </span></td>
                 <td>
                     <a href="{!! $trainee->portfolio !!}" target="blanck" class="btn btn-primary p-2"> <i
-                        class="fas fa-laptop-code mr-2"></i></a>
+                        class="fas fa-laptop-code  "></i></a>
                     <a href="{!! $trainee->github !!}" target="blanck" class="btn btn-primary p-2"> <i
-                            class="fab fa-github mr-2"></i></a>    
+                            class="fab fa-github "></i></a>    
                     <a href="{!! $trainee->cv !!}" target="blanck" class="btn btn-primary p-2"> <i
-                                class="fas fa-user-graduate mr-2"></i></a>
+                                class="fas fa-user-graduate "></i></a>
                 </td>
                 <td class="d-flex">
                     
-                    <a href="{{route('trainees.edit', $trainee->id)}}" class="btn btn-warning mx-3">Editer</a>
+                    <a href="{{ route('trainees.edit', $trainee->id) }}" class="btn btn-warning mx-3">Editer</a>
                     <button type="button" class="btn btn-danger mx-3" onclick="document.getElementById('modal-open-{{$trainee->id}}').style.display='block'">Supprimer</button>
                     <form action="{{ route('trainees.destroy', $trainee->id) }}" method="POST">
                       @csrf
@@ -73,7 +73,7 @@ Admin|Stagiaires
           </tbody>
       </table> 
       <div class="d-flex justify-content-center mt-5">
-        {{$trainees->links('vendor/pagination/custom') }}
+        {{ $trainees->links('vendor/pagination/custom') }}
     </div>   
 </div>   
         

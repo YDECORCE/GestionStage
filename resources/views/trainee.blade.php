@@ -38,8 +38,14 @@ Détail stagiaire
                     class="fas fa-user-graduate mr-2"></i>CV</a>
         </div>
     </div>
-    <div class="row justify-content-center pt-5">
-        les badges compétences quand développés
+    <div class="col-12 justify-content-center pt-5">
+        <h3>Compténces Acquises :</h3>
+        <div>
+        @foreach ($trainee->skills as $skill)
+        <span class="badge badge-pill badge-success mx-3 py-3" style="height:50px; width:100px; font-size:1rem">  <i class="{{$skill->icon}}"></i>
+            {{ $skill->name }}</span>
+        @endforeach
+    </div>
     </div>
 </div>
 

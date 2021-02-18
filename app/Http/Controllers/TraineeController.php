@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promo;
+use App\Models\Skill;
 use App\Models\Trainee;
 use Illuminate\Http\Request;
 use App\Manager\TraineeManager;
@@ -39,6 +40,7 @@ class TraineeController extends Controller
     {
        return view('trainee.create', [
            'promos' => Promo::All(),
+           'skills' => Skill::all(),
                   ]);
     }
 
@@ -76,6 +78,7 @@ class TraineeController extends Controller
         return view('trainee.edit', [
             'trainee'=> $trainee,
             'promos' => Promo::All(),
+            'skills' => Skill::all(),
                    ]);
     }
 
