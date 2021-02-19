@@ -5,7 +5,7 @@ Admin|Entreprises
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
  
     <h1 class="text-center mt-2"> Entreprises </h1>
     <div class="d-flex justify-content-center">
@@ -14,12 +14,12 @@ Admin|Entreprises
     <table class="table table-hover">
         <thead>
           <tr class="table-active">
-            <th scope="col">ID</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Adresse</th>
-            <th scope="col">Téléphone</th>
-            <th scope="col">Site Web</th>
-            <th scope="col">Actions</th>
+            <th scope="col" style="width:5%">ID</th>
+            <th scope="col" style="width:25%">Nom</th>
+            <th scope="col" style="width:25%">Adresse</th>
+            <th scope="col" style="width:15%">Téléphone</th>
+            <th scope="col" style="width:20%">Site Web</th>
+            <th scope="col" style="width:20%">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -27,13 +27,14 @@ Admin|Entreprises
             <tr class="table-light">
                 <th scope="row">{{$compagny->id}}</th>
                 <td>{{ $compagny->name }}</td>
-                <td>{{ $compagny->adress.' '.$compagny->postalcode.' '.$compagny->city}}</td>
+                <td>{{ $compagny->adress}}<br/> {{$compagny->postalcode.' '.$compagny->city}}</td>
                 <td>{{ $compagny->phonenumber }}</td>
-                <td>{{ $compagny->website }}</td>
+                <td><a href={{$compagny->website}} target="blanck" >{{$compagny->website }}</a></td>
                                 
                 <td class="d-flex">
                     
                     <a href="{{ route('compagnies.edit', $compagny->id) }}" class="btn btn-warning mx-3">Editer</a>
+                    <a href="{{ route('c_contacts.index', $compagny->id) }}" class="btn btn-warning mx-3">Contacts</a>
                     <button type="button" class="btn btn-danger mx-3" onclick="document.getElementById('modal-open-{{$compagny->id}}').style.display='block'">Supprimer</button>
                     <form action="{{ route('compagnies.destroy', $compagny->id) }}" method="POST">
                       @csrf

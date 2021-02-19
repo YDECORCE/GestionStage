@@ -9,7 +9,7 @@ Détail Entreprise
 <div class="container py-5">
     <div class="row">
         <div class="col-12 col-sm-4">
-            <img src="{{asset('img/FauxLogo.jpg')}}" alt="profil" class="img-fluid">
+            <img src="{{asset('img/logocompagny.png')}}" alt="profil" class="img-fluid">
         </div>
         <div class="col-12 col-sm-8">
             <h1>{{ $compagny->name }} </h1>

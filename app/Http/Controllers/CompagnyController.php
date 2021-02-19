@@ -23,7 +23,7 @@ class CompagnyController extends Controller
      */
     public function index()
     {
-        $compagnies=Compagny::paginate(6);
+        $compagnies=Compagny::paginate(10);
         return view('compagny.index', [
             'compagnies' => $compagnies,
         ]);
@@ -71,7 +71,9 @@ class CompagnyController extends Controller
      */
     public function edit(Compagny $compagny)
     {
-        return view('compagny.edit');
+        return view('compagny.edit',[
+            'compagny' => $compagny,
+        ]);
     }
 
     /**
@@ -83,7 +85,9 @@ class CompagnyController extends Controller
      */
     public function update(Request $request, Compagny $compagny)
     {
-        //
+        $this->compagnyManager->build($compagny, $request);
+                
+        return redirect()->route('compagnies.index')->with('success', "L'entreprise a été mise à jour !");
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CContactController;
 use App\Http\Controllers\CompagnyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -49,3 +50,15 @@ Route::get('compagnies/{compagny}/edit', [CompagnyController::class, 'edit'])->n
 Route::put('compagnies/{compagny}/update', [CompagnyController::class, 'update'])->name('compagnies.update');
 
 Route::delete('compagnies/{compagny}/destroy', [CompagnyController::class, 'destroy'])->name('compagnies.destroy');
+
+//Routes du CContactController : Gestion des contacts en entreprise
+
+Route::get('c_contacts/{compagny}/index', [CContactController::class, 'index'])->name('c_contacts.index');
+
+Route::get('c_contacts/{compagny}/create', [CContactController::class, 'create'])->name('c_contacts.create');
+
+Route::post('c_contacts/store', [CContactController::class, 'store'])->name('c_contacts.store');
+
+Route::get('c_contacts/{cContact}/edit', [CContactController::class, 'edit'])->name('c_contacts.edit');
+
+Route::put('c_contacts/{cContact}/update', [CContactController::class, 'update'])->name('c_contacts.update');
