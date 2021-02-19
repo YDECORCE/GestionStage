@@ -6,7 +6,7 @@ use App\Models\CContact;
 use App\Models\Compagny;
 use Illuminate\Http\Request;
 use App\Manager\ContactManager;
-use Illuminate\Support\Facades\DB;
+
 
 class CContactController extends Controller
 {

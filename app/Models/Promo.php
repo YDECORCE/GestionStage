@@ -18,6 +18,7 @@ class Promo extends Model
     protected $fillable = [
         'year',
         'city',
+        'active',
         ];
 
     public function trainees()

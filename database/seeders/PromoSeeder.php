@@ -21,6 +21,7 @@ class PromoSeeder extends Seeder
                 Promo::create([
                     'year' => $annee[$i],
                     'city' => $ville[$j],
+                    'active' => true,
                 ]);
             }
         }

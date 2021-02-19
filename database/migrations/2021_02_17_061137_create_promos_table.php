@@ -17,6 +17,7 @@ class CreatePromosTable extends Migration
             $table->id();
             $table->integer('year');
             $table->string('city');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
