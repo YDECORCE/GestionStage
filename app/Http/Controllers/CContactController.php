@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Compagny;
+use App\Models\CContact;
 use Illuminate\Http\Request;
-use App\Manager\CompagnyManager;
 
-
-class CompagnyController extends Controller
+class CContactController extends Controller
 {
-    private $compagnyManager;
-
-    public function __construct(CompagnyManager $compagnyManager)
-    {
-        $this->compagnyManager = $compagnyManager;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +24,7 @@ class CompagnyController extends Controller
      */
     public function create()
     {
-        return view('compagny.create');
+        //
     }
 
     /**
@@ -44,18 +35,16 @@ class CompagnyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->compagnyManager->build(new Compagny(), $request);
-                
-        return redirect()->route('compagnies.index')->with('success', "L'entreprise a été enregistrée !");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Compagny  $compagny
+     * @param  \App\Models\CContact  $cContact
      * @return \Illuminate\Http\Response
      */
-    public function show(Compagny $compagny)
+    public function show(CContact $cContact)
     {
         //
     }
@@ -63,10 +52,10 @@ class CompagnyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Compagny  $compagny
+     * @param  \App\Models\CContact  $cContact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compagny $compagny)
+    public function edit(CContact $cContact)
     {
         //
     }
@@ -75,10 +64,10 @@ class CompagnyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Compagny  $compagny
+     * @param  \App\Models\CContact  $cContact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Compagny $compagny)
+    public function update(Request $request, CContact $cContact)
     {
         //
     }
@@ -86,10 +75,10 @@ class CompagnyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Compagny  $compagny
+     * @param  \App\Models\CContact  $cContact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Compagny $compagny)
+    public function destroy(CContact $cContact)
     {
         //
     }

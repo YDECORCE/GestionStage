@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\CContact;
+use App\Models\Compagny;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Compagny extends Model
+class CContact extends Model
 {
     use HasFactory;
 
-    public function c_contacts()
+    public function compagny()
     {
-        return $this->hasMany(CContact::class);
-    }    
+        return $this->belongsTo(Compagny::class);
+    }
 }

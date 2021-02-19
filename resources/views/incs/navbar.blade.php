@@ -11,8 +11,15 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entreprises</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{route('compagnies')}}">Nos entreprises partenaires</a>
+            <a class="dropdown-item" href="{{route('compagnies.create')}}">Nouvelle Entreprise</a>
+            <a class="dropdown-item" href="#">CRUD Entreprise</a>
+            <a class="dropdown-item" href="#">Saisir une offre de stage</a>
+            
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stagiaires</a>
@@ -20,7 +27,14 @@
             <a class="dropdown-item" href="{{route('trainees.create')}}">Nouveau Stagiaire</a>
             <a class="dropdown-item" href="{{route('trainees.index')}}">CRUD Stagiaire</a>
             <a class="dropdown-item" href="#">Saisir une demande de stage</a>
-            <a class="dropdown-item" href="#">Ajouter une compétence</a>
+            
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paramétrage</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Gestion Promotion</a>
+            <a class="dropdown-item" href="#">Gestion Compétences</a>
           </div>
         </li>
       </ul>
