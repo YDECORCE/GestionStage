@@ -21,7 +21,11 @@ class CreateCContactsTable extends Migration
             $table->string('email');
             $table->string('function');
             $table->unsignedBigInteger('compagny_id');
-            $table->foreign('compagny_id')->references('id')->on('compagnies');
+            $table->foreign('compagny_id')
+                    ->references('id')
+                    ->on('compagnies')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }

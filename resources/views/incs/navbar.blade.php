@@ -16,7 +16,7 @@
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('compagnies')}}">Nos entreprises partenaires</a>
             <a class="dropdown-item" href="{{route('compagnies.create')}}">Nouvelle Entreprise</a>
-            <a class="dropdown-item" href="#">CRUD Entreprise</a>
+            <a class="dropdown-item" href="{{route('compagnies.index')}}">CRUD Entreprise</a>
             <a class="dropdown-item" href="#">Saisir une offre de stage</a>
             
           </div>

@@ -43,3 +43,9 @@ Route::get('compagnies/create', [CompagnyController::class, 'create'])->name('co
 Route::post('compagnies/store', [CompagnyController::class, 'store'])->name('compagnies.store');
 
 Route::get('compagnies/index', [CompagnyController::class, 'index'])->name('compagnies.index');
+
+Route::get('compagnies/{compagny}/edit', [CompagnyController::class, 'edit'])->name('compagnies.edit');
+
+Route::put('compagnies/{compagny}/update', [CompagnyController::class, 'update'])->name('compagnies.update');
+
+Route::delete('compagnies/{compagny}/destroy', [CompagnyController::class, 'destroy'])->name('compagnies.destroy');

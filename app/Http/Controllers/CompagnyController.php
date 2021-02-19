@@ -23,7 +23,10 @@ class CompagnyController extends Controller
      */
     public function index()
     {
-        //
+        $compagnies=Compagny::paginate(6);
+        return view('compagny.index', [
+            'compagnies' => $compagnies,
+        ]);
     }
 
     /**
@@ -68,7 +71,7 @@ class CompagnyController extends Controller
      */
     public function edit(Compagny $compagny)
     {
-        //
+        return view('compagny.edit');
     }
 
     /**
@@ -91,6 +94,7 @@ class CompagnyController extends Controller
      */
     public function destroy(Compagny $compagny)
     {
-        //
+        $compagny->delete();
+        return redirect()->route('compagnies.index')->with('success', "L'entreprise' a été supprimée !");
     }
 }
