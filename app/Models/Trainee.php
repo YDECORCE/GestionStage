@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Promo;
 use App\Models\Skill;
 use Illuminate\Database\Eloquent\Model;
@@ -41,5 +42,10 @@ class Trainee extends Model
     public function skills()
     {
         return $this->BelongsToMany(Skill::class);
+    }
+
+    public function user()
+    {
+        return $this->BelongsTo(User::class);
     }
 }

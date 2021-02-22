@@ -62,3 +62,8 @@ Route::post('c_contacts/store', [CContactController::class, 'store'])->name('c_c
 Route::get('c_contacts/{cContact}/edit', [CContactController::class, 'edit'])->name('c_contacts.edit');
 
 Route::put('c_contacts/{cContact}/update', [CContactController::class, 'update'])->name('c_contacts.update');
+
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

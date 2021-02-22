@@ -23,6 +23,7 @@ Class TraineeManager
         $trainee->mobility = $request->input('mobility');
         $trainee->mobilityzone = $request->input('mobilityzone');
         $trainee->promo_id = $request->input('promo');
+        $trainee->user_id = $request->input('user_id');
         $trainee->save();
 
         $skills=$request->input('skills');

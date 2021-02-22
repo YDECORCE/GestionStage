@@ -11,6 +11,7 @@ Nouveau Stagiaire
     </div>
     <form method="POST" action="{{route('trainees.store')}}">
         @csrf
+        <input hidden name='user_id' value="{{Auth::user()->id}}">
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
@@ -67,7 +68,7 @@ Nouveau Stagiaire
             <div class="col-12 col-sm-6">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="email du stagiaire" />
+                    <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}" />
                 </div>
             </div>
         </div>
