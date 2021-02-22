@@ -53,7 +53,9 @@ class TraineeController extends Controller
      */
     public function store(Request $request)
     {   
-        $this->traineeManager->build(new Trainee(), $request);
+       
+        $imgchange=true;
+        $this->traineeManager->build(new Trainee(), $request, $imgchange);
                 
         return redirect()->route('trainees.index')->with('success', "Le stagiaire a été enregistré !");
     }
@@ -94,7 +96,13 @@ class TraineeController extends Controller
     public function update(Request $request, Trainee $trainee)
     {   
         $trainee->skills()->detach();
-        $this->traineeManager->build($trainee, $request);
+       
+        if(!$request->image)
+        {
+            $imgchange=false;
+        }
+        else{$imgchange=true;}
+        $this->traineeManager->build($trainee, $request, $imgchange);
                 
         return redirect()->route('trainees.index')->with('success', "Le stagiaire a été mis à jour!!!");
     }

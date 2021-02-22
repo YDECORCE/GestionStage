@@ -16,12 +16,14 @@
                     {{ $trainee->firstname . ' ' . $trainee->name }}
                     </a>
                 </h5>
+                <img src="{{asset('img/avatars/'.$trainee->avatar.'')}}" alt="profil" class="img-fluid">
                 <div class="d-flex justify-content-start pl-5 mt-2">
                     <span class="badge badge-pill badge-warning">
                         {{$trainee->promo->year. ' / '.$trainee->promo->city}}
                     </span>
                 </div>
                 <div class="card-body">
+                    
                     <a href="{!! $trainee->portfolio !!}" target="blanck" class="btn btn-primary p-2"> <i
                             class="fas fa-laptop-code mr-2"></i>Portfolio</a>
                     <a href="{!! $trainee->github !!}" target="blanck" class="btn btn-primary p-2"> <i

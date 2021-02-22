@@ -7,9 +7,9 @@ Nouveau Stagiaire
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Ajouter un nouveau stagiaire</h1>
+        <h1>Créez votre compte stagiaire</h1>
     </div>
-    <form method="POST" action="{{route('trainees.store')}}">
+    <form method="POST" action="{{route('trainees.store')}}" enctype="multipart/form-data">
         @csrf
         <input hidden name='user_id' value="{{Auth::user()->id}}">
         <div class="row">
@@ -58,17 +58,23 @@ Nouveau Stagiaire
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Numéro de portable</label>
                     <input type="text" name="phonenumber" class="form-control"
                         placeholder="Numéro de portable du stagiaire" />
                 </div>
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}" />
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="form-group">
+                    <label>Avatar</label>
+                        <input type="file" name="image" class="form-control">
                 </div>
             </div>
         </div>
@@ -103,7 +109,7 @@ Nouveau Stagiaire
                 <label>Zone de mobilité</label>
                 <select name="mobilityzone" class="form-control">
                     <option value="none">Aucune</option>
-                    <option value="Dépatement">Département</option>
+                    <option value="Département">Département</option>
                     <option value="Région">Région</option>
                     <option value="Nationale">Nationale</option>
                     <option value="Internationale">Internationale</option>

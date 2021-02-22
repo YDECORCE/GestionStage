@@ -8,7 +8,7 @@ Détail stagiaire
 <div class="container py-5">
     <div class="row">
         <div class="col-12 col-sm-4">
-            <img src="{{asset('img/profile.png')}}" alt="profil" class="img-fluid">
+            <img src="{{asset('img/avatars/'.$trainee->avatar.'')}}" alt="profil" class="img-fluid" style="border-radius:100%">
         </div>
         <div class="col-12 col-sm-8">
             <h1>{{ $trainee->firstname . ' ' . $trainee->name }} </h1>

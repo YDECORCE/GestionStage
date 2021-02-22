@@ -27,13 +27,14 @@ class CreateTraineesTable extends Migration
             $table->string('cv');
             $table->boolean('mobility')->default(false);
             $table->string('mobilityzone');
+            $table->string('avatar');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-                    
+
             $table->unsignedBigInteger('promo_id');
             $table->foreign('promo_id')->references('id')->on('promos');
             $table->timestamps();

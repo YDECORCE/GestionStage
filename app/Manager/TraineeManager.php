@@ -8,8 +8,26 @@ use Symfony\Component\Console\Input\Input;
 
 Class TraineeManager
 {
-    public function build(Trainee $trainee, Request $request)
+    public function build(Trainee $trainee, Request $request, $imgchange)
     {
+    if($imgchange===true)    
+    {
+    // script d'upload image Avatar
+    if($request->image!==null)
+        {  
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.$request->image->extension();     
+        $request->image->move(public_path('img/avatars'), $imageName);
+        }
+    else{
+        $imageName ='profile.png';
+        }
+    }
+    else{
+        $imageName =$trainee->avatar;
+    }
         $trainee->firstname = $request->input('firstname');
         $trainee->name = $request->input('name');
         $trainee->adress = $request->input('adress');
@@ -24,6 +42,7 @@ Class TraineeManager
         $trainee->mobilityzone = $request->input('mobilityzone');
         $trainee->promo_id = $request->input('promo');
         $trainee->user_id = $request->input('user_id');
+        $trainee->avatar = $imageName;
         $trainee->save();
 
         $skills=$request->input('skills');

@@ -10,9 +10,10 @@ Admin| MAJ Stagiaire
     <div class="row justify-content-center">
         <h1>Editer ce stagiaire</h1>
     </div>
-    <form method="POST" action="{{route('trainees.update', $trainee->id)}}">
+    <form method="POST" action="{{route('trainees.update', $trainee->id)}}" enctype="multipart/form-data">
         @method("PUT")
         @csrf
+        <input hidden name='user_id' value="{{$trainee->user_id}}">
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="form-group">
@@ -59,17 +60,23 @@ Admin| MAJ Stagiaire
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Numéro de portable</label>
                     <input type="text" name="phonenumber" class="form-control"
                     value="{{ $trainee->phonenumber}}" />
                 </div>
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" name="email" class="form-control" value="{{ $trainee->email}}" />
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="form-group">
+                    <label>Avatar</label>
+                        <input type="file" name="image" class="form-control" value="{{ $trainee->avatar}}" placeholder="{{ $trainee->avatar}}">
                 </div>
             </div>
         </div>
