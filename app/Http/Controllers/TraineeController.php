@@ -68,7 +68,9 @@ class TraineeController extends Controller
      */
     public function show(Trainee $trainee)
     {
-        return view('trainee.default');
+        return view('trainee.show', [
+            'trainee' =>$trainee,
+        ]);
     }
 
     /**

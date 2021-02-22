@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\User;
 use App\Models\Promo;
 use App\Models\Skill;
+use App\Models\Traineeship;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -41,11 +42,16 @@ class Trainee extends Model
 
     public function skills()
     {
-        return $this->BelongsToMany(Skill::class);
+        return $this->belongsToMany(Skill::class);
     }
 
     public function user()
     {
-        return $this->BelongsTo(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function traineeships()
+    {
+        return $this->hasMany(Traineeship::class);
     }
 }

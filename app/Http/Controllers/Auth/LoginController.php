@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Trainee;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -21,12 +23,26 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = ('/');
+    // /**
+    //  * Where to redirect users after login.
+    //  *
+    //  * @var string
+    //  */
+    // protected $redirectTo = ('/');
+
+
+    protected function authenticated(Request $request, $user) {
+        if ($user->role === 'ADMIN') {
+            return redirect('/');
+        } else if ($user->role === 'USER') {
+            $trainee=Trainee::where('user_id',$user->id)->first();
+            // dd($trainee);
+            return redirect()->route('trainees.show',$trainee->id);
+        } else {
+            return redirect('/');
+        }
+   }
+
 
     /**
      * Create a new controller instance.

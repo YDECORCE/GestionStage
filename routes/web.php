@@ -31,6 +31,8 @@ Route::post('/admin/trainees/store', [TraineeController::class, 'store'])->name(
 
 Route::get('/admin/trainees', [TraineeController::class, 'index'])->name('trainees.index');
 
+Route::get('/trainees/{trainee}/show', [TraineeController::class, 'show'])->name('trainees.show');
+
 Route::get('/admin/trainees/{trainee}/edit', [TraineeController::class, 'edit'])->name('trainees.edit');
 
 Route::put('/admin/trainees/{trainee}/update', [TraineeController::class, 'update'])->name('trainees.update');
