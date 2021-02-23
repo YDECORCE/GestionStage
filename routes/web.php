@@ -76,3 +76,5 @@ Auth::routes();
 Route::post('traineeships/store', [TraineeshipController::class, 'store'])->name('traineeships.store');
 
 Route::get('traineeships/{traineeship}/edit', [TraineeshipController::class, 'edit'])->name('traineeships.edit');
+
+Route::put('trainneships/{traineeship}/update', [TraineeshipController::class, 'update'])->name('traineeships.update');

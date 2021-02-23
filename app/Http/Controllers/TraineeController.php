@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Promo;
 use App\Models\Skill;
 use App\Models\Trainee;
-use Illuminate\Http\Request;
-use App\Manager\TraineeManager;
 use App\Models\Compagny;
 use App\Models\Traineeship;
+use Illuminate\Http\Request;
+use App\Manager\TraineeManager;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TraineeController extends Controller
 {
@@ -57,9 +58,9 @@ class TraineeController extends Controller
     {   
        
         $imgchange=true;
-        $this->traineeManager->build(new Trainee(), $request, $imgchange);
+        $this->traineeManager->build($trainee=new Trainee(), $request, $imgchange);
                 
-        return redirect()->route('trainees.index')->with('success', "Le stagiaire a été enregistré !");
+        return redirect()->route('trainees.show', $trainee->id)->with('success', "Votre compte a été créé!! Bonne recherche de stage");
     }
 
     /**
@@ -73,7 +74,9 @@ class TraineeController extends Controller
         return view('trainee.show', [
             'trainee' =>$trainee,
             'compagnies'=>Compagny::all(),
-            'traineeship' =>Traineeship::where('trainee_id',$trainee->id)->paginate(10),
+            'traineeship' =>Traineeship::where('trainee_id',$trainee->id)
+                            ->orderBy('dateofdemand', 'desc')                
+                            ->paginate(10),
         ]);
     }
 
@@ -109,8 +112,16 @@ class TraineeController extends Controller
         }
         else{$imgchange=true;}
         $this->traineeManager->build($trainee, $request, $imgchange);
-                
-        return redirect()->route('trainees.index')->with('success', "Le stagiaire a été mis à jour!!!");
+
+        if(Auth::user()->role==='ADMIN')
+        {
+            return redirect()->route('trainees.index')->with('success', "Le stagiaire a été mis à jour!!!");
+        }
+        else
+        {
+            return redirect()->route('trainees.show',$trainee->id)->with('success', "Vos informations ont été mise à jour!!!");
+            }        
+        
     }
 
     /**

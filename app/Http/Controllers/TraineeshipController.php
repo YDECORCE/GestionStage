@@ -79,7 +79,15 @@ class TraineeshipController extends Controller
      */
     public function update(Request $request, Traineeship $traineeship)
     {
-        //
+       
+        $traineeship->trainee_id = $request->input('trainee_id');
+        $traineeship->compagny_id = $request->input('compagny_id');
+        $traineeship->dateofdemand = $request->input('dateofdemand');
+        $traineeship->relaunchdate = $request->input('relaunchdate');
+        $traineeship->dateofinterview = $request->input('dateofinterview');
+        $traineeship->status =$request->input('status');
+        $traineeship->update();
+        return redirect()->route('trainees.show',$traineeship->trainee_id)->with('success', "La démarche a été enrgistrée");
     }
 
     /**

@@ -6,12 +6,8 @@
   
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{route('home')}}">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
         @if (Auth::user())
+        @if (Auth::user()->role==='ADMIN')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entreprises</a>
           <div class="dropdown-menu">
@@ -25,10 +21,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stagiaires</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{route('trainees.create')}}">Nouveau Stagiaire</a>
             <a class="dropdown-item" href="{{route('trainees.index')}}">CRUD Stagiaire</a>
-            <a class="dropdown-item" href="#">Saisir une demande de stage</a>
-            
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -37,11 +30,36 @@
             <a class="dropdown-item" href="#">Gestion Promotion</a>
             <a class="dropdown-item" href="#">Gestion Compétences</a>
           </div>
-        </li>
-        
-      
-            
+        </li>   
         @endif
+        @if ((Auth::user()->role==='USER'))
+        <li class="nav-item active">
+          <a class="nav-link" href="{{route('trainees.show', Auth::user()->trainee->id)}}">Mon tableau de bord
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('trainees.edit', Auth::user()->trainee->id)}}">Editer mon profil
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Entreprises</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{route('compagnies')}}">Nos entreprises partenaires</a>
+            <a class="dropdown-item" href="{{route('compagnies.create')}}">Nouvelle Entreprise</a>           
+          </div>
+        </li>   
+        @endif   
+        @else
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('home')}}">Home
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        @endif
+        
+        
         
       </ul>
       <ul class="navbar-nav ml-auto">

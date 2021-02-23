@@ -7,10 +7,10 @@ Admin|Stagiaires
 @section('content')
 <div class="container">
  
-    <h1 class="text-center mt-2"> Stagiaires </h1>
-    <div class="d-flex justify-content-center">
+    <h1 class="text-center my-5"> Stagiaires </h1>
+    {{-- <div class="d-flex justify-content-center">
       <a class="btn btn-info my-3" href="{{ route('trainees.create') }}"><i class="fas fa-user-cog mx-2"></i>Ajouter un nouveau stagiaire</a> 
-    </div>
+    </div> --}}
     <table class="table table-hover">
         <thead>
           <tr class="table-active">

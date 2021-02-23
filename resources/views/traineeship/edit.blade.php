@@ -1,13 +1,45 @@
 @extends('template')
 
 @section('title')
-Under Construction
+Suivi Candidature {{$traineeship->trainee->name}}
 @endsection
 
 @section('content')
-<div class="container d-flex justify-content-center">  
-    <img src="{{asset('img/under-construction.png')}}" alt="profil" style="height:80vh; width:auto">
+<div class="container justify-content-center">
+    {{-- <div class="col-12 "><p>{{$traineeship->trainee->name}}</p></div>  --}}
+    <div class="col-12 mt-2">
+        <h1>Fiche de suivi de candidature</h1>
+        <h3>Entreprise : {{$traineeship->compagny->name}}</h3>
+         <h4>Date de candidature : {{date('D d M Y', strtotime($traineeship->dateofdemand))}}</h4>
+    </div>
+    <div class="col-12 mt-5">
+    <form action="{{route('traineeships.update', $traineeship->id)}}" method="post">
+        @csrf
+        @method("PUT")
+        <input hidden name="trainee_id" value="{{$traineeship->trainee_id}}">
+        <input hidden name="compagny_id" value="{{$traineeship->compagny_id}}">
+        <input hidden name="dateofdemand" value="{{$traineeship->dateofdemand}}">
+        <div class="form-group">
+            <label>Si vous avez effectué une relance auprès de cette entreprise, saisir la date de relance</label>
+            <input type="date" name="relaunchdate" class="form-control" placeholder="date de la relance" />
+        </div>
+        <div class="form-group">
+            <label>Si vous avez effectué obtenu un entretien avec cette entreprise, saisir la date de l'entretien</label>
+            <input type="date" name="dateofinterview" class="form-control" placeholder="date de l'entretien" />
+        </div>
+        <div class="form-group">
+            <label>Précisez le status de votre candidature</label>
+            <select name="status" id="" class="form-control" >
+                <option value="En Attente">En attente</option>
+                <option value="Relancée">Entreprise Relancée</option>
+                <option value="Positive">Réponse positive de l'entreprise</option>
+                <option value="Négative">Réponse négative de l'entreprise</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer mon suivi</button>
+    </form>
 </div>
-   @dump($traineeship)     
+
+</div> 
 
 @endsection

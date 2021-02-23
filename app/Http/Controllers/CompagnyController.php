@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Compagny;
 use Illuminate\Http\Request;
 use App\Manager\CompagnyManager;
+use Illuminate\Support\Facades\Auth;
 
 
 class CompagnyController extends Controller
@@ -48,8 +49,15 @@ class CompagnyController extends Controller
     public function store(Request $request)
     {
         $this->compagnyManager->build(new Compagny(), $request);
-                
-        return redirect()->route('compagnies.index')->with('success', "L'entreprise a été enregistrée !");
+
+        if(Auth::user()->role==='ADMIN')
+                {
+            return redirect()->route('compagnies.index')->with('success', "L'entreprise a été enregistrée !");
+                }
+        else{
+            return redirect()->route('trainees.show',Auth::user()->trainee->id)->with('success', "L'entreprise a été enregistrée !");
+        }
+            
     }
 
     /**

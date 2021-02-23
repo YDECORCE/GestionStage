@@ -7,8 +7,7 @@ Under Construction
 @section('content')
 <div class="container justify-content-center">  
     <div class="col-12 justify-content-center">
-    <h1>Bonjour {{$trainee->firstname}} !!</h1>
-    <h3>Faisons le point sur ta recherche de stage...</h3>
+       <h3>{{$trainee->firstname}}, faisons le point sur ta recherche de stage...</h3>
     </div>
     <div class="row mt-5">
         <h4>Saisir une nouvelle démarche de stage</h4>
@@ -54,14 +53,14 @@ Under Construction
             <td>{{date('d-M-Y', strtotime($data->dateofdemand))}}</td>
             <td>
                 @if ($data->relaunchdate)
-                    {{ $data->relaunchdate}}
+                    {{date('d-M-Y', strtotime( $data->relaunchdate))}}
                 @else
                     Pas de relance effectuée
                 @endif
             </td>
             <td>
                 @if ($data->dateofinterview)
-                    {{ $data->dateofinterview}}
+                    {{date('d-M-Y', strtotime($data->dateofinterview))}}
                 @else
                     Pas d'entretien passé
                 @endif
