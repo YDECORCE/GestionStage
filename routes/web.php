@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\CContactController;
-use App\Http\Controllers\CompagnyController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TraineeController;
+use App\Http\Controllers\CContactController;
+use App\Http\Controllers\CompagnyController;
+use App\Http\Controllers\TraineeshipController;
+use App\Models\Traineeship;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +68,11 @@ Route::get('c_contacts/{cContact}/edit', [CContactController::class, 'edit'])->n
 
 Route::put('c_contacts/{cContact}/update', [CContactController::class, 'update'])->name('c_contacts.update');
 
-
+// Routes créés par UI pour gérer la connexion et l'authentification
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Routes liées au Traineeship controller
+
+Route::post('traineeships/store', [TraineeshipController::class, 'store'])->name('traineeships.store');
+
+Route::get('traineeships/{traineeship}/edit', [TraineeshipController::class, 'edit'])->name('traineeships.edit');

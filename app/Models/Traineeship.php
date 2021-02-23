@@ -13,11 +13,11 @@ class Traineeship extends Model
 
     public function trainee()
     {
-        $this->belongsTo(Trainee::class);
+        return $this->belongsTo(Trainee::class);
     }
 
     public function compagny()
     {
-        $this->belongsTo(Compagny::class);
+        return $this->belongsTo(Compagny::class);
     }
 }

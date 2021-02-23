@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trainee;
+use App\Models\Compagny;
 use App\Models\Traineeship;
 use Illuminate\Http\Request;
 
@@ -22,9 +24,10 @@ class TraineeshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Trainee $trainee, Compagny $compagny)
     {
-        //
+        
+        
     }
 
     /**
@@ -35,7 +38,12 @@ class TraineeshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $traineeship=new Traineeship;
+        $traineeship->trainee_id = $request->input('trainee_id');
+        $traineeship->compagny_id = $request->input('compagny_id');
+        $traineeship->dateofdemand = $request->input('dateofdemand');
+        $traineeship->save();
+        return redirect()->route('trainees.show',$traineeship->trainee_id)->with('success', "La démarche a été enrgistrée");
     }
 
     /**
@@ -57,7 +65,9 @@ class TraineeshipController extends Controller
      */
     public function edit(Traineeship $traineeship)
     {
-        //
+        return view('traineeship.edit', [
+            'traineeship' => $traineeship,
+        ]);
     }
 
     /**

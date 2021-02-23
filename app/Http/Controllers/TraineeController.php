@@ -7,6 +7,8 @@ use App\Models\Skill;
 use App\Models\Trainee;
 use Illuminate\Http\Request;
 use App\Manager\TraineeManager;
+use App\Models\Compagny;
+use App\Models\Traineeship;
 use Illuminate\Support\Facades\DB;
 
 class TraineeController extends Controller
@@ -70,6 +72,8 @@ class TraineeController extends Controller
     {
         return view('trainee.show', [
             'trainee' =>$trainee,
+            'compagnies'=>Compagny::all(),
+            'traineeship' =>Traineeship::where('trainee_id',$trainee->id)->paginate(10),
         ]);
     }
 
