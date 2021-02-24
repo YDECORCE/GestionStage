@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\CContactController;
 use App\Http\Controllers\CompagnyController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TraineeshipController;
 use App\Models\Traineeship;
 
@@ -78,3 +79,9 @@ Route::post('traineeships/store', [TraineeshipController::class, 'store'])->name
 Route::get('traineeships/{traineeship}/edit', [TraineeshipController::class, 'edit'])->name('traineeships.edit');
 
 Route::put('trainneships/{traineeship}/update', [TraineeshipController::class, 'update'])->name('traineeships.update');
+
+//Routes liées au DashboardAdmin Controller
+
+Route::get('admin/index', [DashboardAdminController::class, 'index'])->name('admins.index');
+
+Route::get('admin/{trainee}/show',[DashboardAdminController::class, 'show'])->name('admins.show');

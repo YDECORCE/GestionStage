@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trainee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardAdminController extends Controller
 {
@@ -13,7 +15,15 @@ class DashboardAdminController extends Controller
      */
     public function index()
     {
-        //
+        // $trainee= Trainee::all();
+        $trainee= Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
+                    ->where('promos.active', true)
+                    ->select('trainees.*')
+                    ->orderBy('name', 'asc')
+                    ->get();
+        return view('admin.index',[
+            'trainees' =>$trainee,
+        ]);
     }
 
     /**
@@ -43,9 +53,11 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Trainee $trainee)
     {
-        //
+        return view('admin.show',[
+            'trainee' =>$trainee,
+        ]);
     }
 
     /**

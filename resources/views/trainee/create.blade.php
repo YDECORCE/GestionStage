@@ -1,4 +1,4 @@
-@extends('template')
+@extends('templateregister')
 
 @section('title')
 Nouveau Stagiaire
