@@ -36,7 +36,7 @@ class LoginController extends Controller
             return redirect()->route('admins.index');
         } else if ($user->role === 'USER') {
             $trainee=Trainee::where('user_id',$user->id)->first();
-            // dd($trainee);
+            
             return redirect()->route('trainees.show',$trainee->id);
         } else {
             return redirect('/');

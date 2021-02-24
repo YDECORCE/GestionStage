@@ -16,7 +16,8 @@
                     {{ $trainee->firstname . ' ' . $trainee->name }}
                     </a>
                 </h5>
-                <img src="{{asset('img/avatars/'.$trainee->avatar.'')}}" alt="profil" class="img-fluid">
+                <div class="image" style="background-image:url({{asset('img/avatars/'.$trainee->avatar.'')}})"></div>
+                {{-- <img src="{{asset('img/avatars/'.$trainee->avatar.'')}}" alt="profil" class="img-fluid"> --}}
                 <div class="d-flex justify-content-start pl-5 mt-2">
                     <span class="badge badge-pill badge-warning">
                         {{$trainee->promo->year. ' / '.$trainee->promo->city}}

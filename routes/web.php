@@ -1,14 +1,16 @@
 <?php
 
+use App\Models\Traineeship;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PromoController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\CContactController;
 use App\Http\Controllers\CompagnyController;
-use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TraineeshipController;
-use App\Models\Traineeship;
+use App\Http\Controllers\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +87,19 @@ Route::put('trainneships/{traineeship}/update', [TraineeshipController::class, '
 Route::get('admin/index', [DashboardAdminController::class, 'index'])->name('admins.index');
 
 Route::get('admin/{trainee}/show',[DashboardAdminController::class, 'show'])->name('admins.show');
+
+// Routes liées au Promo Controller
+
+Route::get('promo/index', [PromoController::class, 'index'])->name('promos.index');
+
+Route::post('promo/store', [PromoController::class, 'store'])->name('promos.store');
+
+Route::put('promo/{promo}/update', [PromoController::class, 'update'])->name('promos.update');
+
+// Routes liées au Skill Controller
+
+Route::get('skill/index', [SkillController::class, 'index'])->name('skills.index');
+
+Route::post('skill/store', [SkillController::class, 'store'])->name('skills.store');
+
+

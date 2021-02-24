@@ -32,8 +32,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paramétrage</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Gestion Promotion</a>
-            <a class="dropdown-item" href="#">Gestion Compétences</a>
+            <a class="dropdown-item" href="{{route('promos.index')}}">Gestion Promotion</a>
+            <a class="dropdown-item" href="{{route('skills.index')}}">Gestion Compétences</a>
           </div>
         </li>   
         @endif

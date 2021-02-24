@@ -23,8 +23,12 @@ Under Construction
     <tbody>
       
         @foreach ($trainees as $data)
-             
-            <th scope="row">{{ $data->firstname.' '.$data->name}}</th>
+            @if ($data->traineeships->where('status','Positive')->count()>0)
+            <th scope="row" class="table-success">{{ $data->firstname.' '.$data->name}}</th>
+            @else
+            <th scope="row" >{{ $data->firstname.' '.$data->name}}</th>  
+            @endif 
+            
             <td><span class="badge badge-pill badge-warning">
                 {{$data->promo->year. ' / '.$data->promo->city}}
             </span></td>

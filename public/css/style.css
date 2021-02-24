@@ -13,3 +13,8 @@
     font-size: 1rem!important;
     text-align: center;
 }
+.image{
+    background-size: cover;
+    width: auto;
+    height: 250px; 
+}

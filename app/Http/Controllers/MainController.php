@@ -10,8 +10,17 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function home(){
+
+        $trainees=Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
+                    
+                    ->where('promos.active', true)
+                    
+                    ->select('trainees.*')
+                    
+                    ->orderBy('name', 'asc')
+                    ->paginate(6);
         return view('home', [
-            'trainees' => Trainee::paginate(6),
+            'trainees' => $trainees,
             'promos' => Promo::all(),
         ]);
     }

@@ -14,7 +14,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        return view('skill.index',[
+            'skills'=> Skill::all(),
+        ]);
     }
 
     /**
