@@ -1,0 +1,11 @@
+.bgimage{
+    background-image: 
+            linear-gradient(
+                rgba(39,43,48,0.5),
+                rgba(39,43,48,1)),
+    url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+   
+}

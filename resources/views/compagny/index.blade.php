@@ -24,7 +24,7 @@ Admin|Entreprises
         </thead>
         <tbody>
             @foreach ($compagnies as $compagny)
-            <tr class="table-light">
+            <tr class="table-secondary">
                 <th scope="row">{{$compagny->id}}</th>
                 <td>{{ $compagny->name }}</td>
                 <td>{{ $compagny->adress}}<br/> {{$compagny->postalcode.' '.$compagny->city}}</td>

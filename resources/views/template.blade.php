@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     {{-- CSS Bootswatch Minty --}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <title>@yield('title')</title>
   </head>
-  <body>
+
+
+  <body class="bgimage">
     @include('incs/navbar')
     <div class="container justify-content-center mt-3">
       @include('incs/flash')
-    </div>
+    
     @yield('content')
-
+  </div>
     
   </body>
 

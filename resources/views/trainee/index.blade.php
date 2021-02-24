@@ -24,7 +24,7 @@ Admin|Stagiaires
         </thead>
         <tbody>
             @foreach ($trainees as $trainee)
-            <tr class="table-light">
+            <tr class="table-secondary">
                 <th scope="row">{{$trainee->id}}</th>
                 <td>{{ $trainee->name }}</td>
                 <td>{{ $trainee->firstname }}</td>

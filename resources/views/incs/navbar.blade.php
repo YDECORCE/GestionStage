@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{route('home')}}">Navbar</a>
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-5 mr-auto">
         @if (Auth::user())
         @if (Auth::user()->role==='ADMIN')
         <li class="nav-item dropdown">
@@ -33,7 +33,7 @@
         </li>   
         @endif
         @if ((Auth::user()->role==='USER'))
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link" href="{{route('trainees.show', Auth::user()->trainee->id)}}">Mon tableau de bord
             <span class="sr-only">(current)</span>
           </a>
@@ -52,7 +52,7 @@
         </li>   
         @endif   
         @else
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('home')}}">Home
                 <span class="sr-only">(current)</span>
                 </a>

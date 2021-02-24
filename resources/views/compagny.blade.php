@@ -40,7 +40,7 @@ Détail Entreprise
             </thead>
             <tbody>
                 @foreach ($compagny->c_contacts as $contact)
-                <tr class="table-light">
+                <tr class="table-secondary">
                     <td>{{$contact->firstname}}</td>
                     <td>{{$contact->name}}</td>
                     <td>{{$contact->function}}</td>

@@ -48,7 +48,20 @@ Under Construction
     <tbody>
       
         @foreach ($traineeship as $data)
-        <tr class="table-light">
+        @switch($data->status)
+            @case("Positive")
+                <tr class="table-success"> 
+                @break
+            @case("Négative")
+                <tr class="table-danger">
+                @break
+            @case("Relancée")
+                <tr class="table-warning">  
+                @break
+            @default
+                <tr class="table-secondary">  
+        @endswitch
+        
             <th scope="row">{{ $data->compagny->name}}</th>
             <td>{{date('d-M-Y', strtotime($data->dateofdemand))}}</td>
             <td>

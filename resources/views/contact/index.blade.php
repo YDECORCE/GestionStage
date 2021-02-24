@@ -25,7 +25,7 @@ Admin|Entreprises
         </thead>
         <tbody>
             @foreach ($contacts as $contact)
-            <tr class="table-light">
+            <tr class="table-secondary">
                 <th scope="row">{{$contact->id}}</th>
                 <td>{{ $contact->name }}</td>
                 <td>{{ $contact->firstname }}</td>
