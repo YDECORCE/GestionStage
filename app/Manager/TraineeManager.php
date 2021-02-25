@@ -48,7 +48,8 @@ Class TraineeManager
         $skills=$request->input('skills');
         $idtrainee=$trainee->id;
         $skill_trainee=[];
-        foreach ($skills as $skill=>$value)
+        if($skills!==null){
+            foreach ($skills as $skill=>$value)
             {
             array_push($skill_trainee , [
                 'skill_id' =>$value,
@@ -57,6 +58,8 @@ Class TraineeManager
             }
            
         $trainee->skills()->attach($skill_trainee);
+        }
+        
 
     }
 }

@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-Under Construction
+{{$trainee->firstname.' '.$trainee->name}}
 @endsection
 
 @section('content')
@@ -46,10 +46,16 @@ Under Construction
     <div class="col-12 justify-content-center pt-5">
         <h3>Compétences Acquises :</h3>
         <div>
-        @foreach ($trainee->skills as $skill)
-        <span class="badge badge-pill badge-success m-3 py-3" style="height:50px; width:150px; font-size:1rem">  <i class="{{$skill->icon}}"></i>
-            {{ $skill->name }}</span>
-        @endforeach
+        @if (count($trainee->skills)>0)
+            @foreach ($trainee->skills as $skill)
+                <span class="badge badge-pill badge-success m-3 py-3" style="height:50px; width:150px; font-size:1rem">  <i class="{{$skill->icon}}"></i>
+                {{ $skill->name }}
+            </span>
+            @endforeach 
+        @else
+            Pas de compétence acquise
+        @endif    
+        
         </div>
     </div>
     <div class="row mt-5 justify-content-center">
@@ -104,7 +110,7 @@ Under Construction
           </table>
             
         @else
-            <h5> Pas de démarches enregistrées</h5>
+            <h5> Pas de démarche enregistrée</h5>
         @endif
         </div>    
 </div> 

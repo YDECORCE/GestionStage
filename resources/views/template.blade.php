@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <title>@yield('title')</title>
+    @livewireStyles
   </head>
 
 
@@ -21,7 +22,7 @@
     
     @yield('content')
   </div>
-    
+  @livewireScripts  
   </body>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

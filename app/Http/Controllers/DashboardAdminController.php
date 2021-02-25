@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Promo;
 use App\Models\Trainee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,13 +17,14 @@ class DashboardAdminController extends Controller
     public function index()
     {
         // $trainee= Trainee::all();
-        $trainee= Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
-                    ->where('promos.active', true)
-                    ->select('trainees.*')
-                    ->orderBy('name', 'asc')
-                    ->get();
+        // $trainee= Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
+        //             ->where('promos.active', true)
+        //             ->select('trainees.*')
+        //             ->orderBy('name', 'asc')
+        //             ->get();
         return view('admin.index',[
-            'trainees' =>$trainee,
+            // 'trainees' =>$trainee,
+            'promos' => Promo::where('active', true)->get(),
         ]);
     }
 
