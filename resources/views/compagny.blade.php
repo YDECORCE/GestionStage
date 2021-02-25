@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-Détail Entreprise
+{{ $compagny->name }}
 @endsection
 
 @section('content')

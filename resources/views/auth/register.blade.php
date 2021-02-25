@@ -1,5 +1,9 @@
 @extends('template')
 
+@section('title')
+S'inscrire
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

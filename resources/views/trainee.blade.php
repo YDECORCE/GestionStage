@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-Détail stagiaire
+{{ $trainee->firstname . ' ' . $trainee->name }}
 @endsection
 
 @section('content')

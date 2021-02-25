@@ -1,17 +1,17 @@
 @extends('template')
 
 @section('title')
-Nouvelle Entreprise
+Edition : {{$compagny->name}}
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Ajouter une nouvelle Entreprise</h1>
+        <h1>Edition : {{$compagny->name}}</h1>
     </div>
     <form method="POST" action="{{route('compagnies.update', $compagny->id)}}">
         @csrf
-        @method('PUT');
+        @method('PUT')
         <div class="row">
             <div class="col-12">
                 <div class="form-group">

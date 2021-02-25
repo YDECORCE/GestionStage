@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-Under Construction
+{{'Dashboard  :'.$trainee->firstname}}
 @endsection
 
 @section('content')

@@ -16,14 +16,8 @@ class DashboardAdminController extends Controller
      */
     public function index()
     {
-        // $trainee= Trainee::all();
-        // $trainee= Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
-        //             ->where('promos.active', true)
-        //             ->select('trainees.*')
-        //             ->orderBy('name', 'asc')
-        //             ->get();
+        // Pas de données Trainee transmises car gérer depuis le controleur Livewire
         return view('admin.index',[
-            // 'trainees' =>$trainee,
             'promos' => Promo::where('active', true)->get(),
         ]);
     }
@@ -35,7 +29,7 @@ class DashboardAdminController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**

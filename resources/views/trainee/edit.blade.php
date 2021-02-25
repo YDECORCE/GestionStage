@@ -1,14 +1,14 @@
 @extends('template')
 
 @section('title')
-Admin| MAJ Stagiaire
+{{'Editer :'.$trainee->firstname.' '.$trainee->name}}
 @endsection
 
 @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Editer ce stagiaire</h1>
+        <h1>{{'Editer :'.$trainee->firstname.' '.$trainee->name}}</h1>
     </div>
     <form method="POST" action="{{route('trainees.update', $trainee->id)}}" enctype="multipart/form-data">
         @method("PUT")

@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-Under Construction
+Dashboard {{Auth::user()->name}}
 @endsection
 
 @section('content')
