@@ -10,12 +10,13 @@
     <div class="articles row justify-content-center">
         @foreach ($compagnies as $compagny)
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card my-3">
-                <h4 class="card-title text-center">
+            <div class="card my-3" style="min-height:250px">
+                <h4 class="card-title text-center mt-2">
                     <a href="{{route('compagny',$compagny->id)}}">
                     {{ $compagny->name }}
                     </a>
                 </h4>
+                <div class="px-3">
                 <h6><i class="fas fa-address-card mr-2"></i>
                     {{ $compagny->adress }}</h6>
                 <h6><i class="fas fa-map-marked-alt mr-2"></i>
@@ -26,6 +27,7 @@
                     {{ $compagny->email }}</h6>
                 <h6><i class="fas fa-desktop mr-2"></i>
                     {{ $compagny->website }}</h6>
+                </div>
                 
             </div>
         </div>

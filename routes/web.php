@@ -28,6 +28,8 @@ Auth::routes();
 // Routes du main Controlleur : affichage page d'accueil sans authentification
 Route::get('/', [MainController::class, 'home'])->name('home');
 Route::get('trainees/{trainee:id}',[MainController::class, 'show'])->name('trainee');
+Route::get('/admin/trainees/create', [TraineeController::class, 'create'])->name('trainees.create');
+Route::post('/admin/trainees/store', [TraineeController::class, 'store'])->name('trainees.store');
 
 
 // Routes soumises au Middleware ('admin') limitée au user ayant le role ADMIN
@@ -52,8 +54,7 @@ Route::middleware('admin')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('compagny', [MainController::class, 'compagny'])->name('compagnies'); 
     Route::get('compagny/{compagny:id}', [MainController::class, 'showcompagny'])->name('compagny');
-    Route::get('trainees/create', [TraineeController::class, 'create'])->name('trainees.create');
-    Route::post('trainees/store', [TraineeController::class, 'store'])->name('trainees.store');
+    
     Route::get('trainees/{trainee}/show', [TraineeController::class, 'show'])->name('trainees.show'); 
     Route::get('trainees/{trainee}/edit', [TraineeController::class, 'edit'])->name('trainees.edit');
     Route::put('trainees/{trainee}/update', [TraineeController::class, 'update'])->name('trainees.update');

@@ -16,6 +16,10 @@ class MainController extends Controller
                     ->select('trainees.*')
                     ->orderBy('name', 'asc')
                     ->paginate(6);
+        // $traineeswithship=[];
+        // foreach ($trainees as $trainee){
+        //     if
+        // }
         return view('home', [
             'trainees' => $trainees,
             'promos' => Promo::all(),
