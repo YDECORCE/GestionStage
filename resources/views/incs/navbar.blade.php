@@ -23,12 +23,7 @@
             
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stagiaires</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{route('trainees.index')}}">CRUD Stagiaire</a>
-          </div>
-        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paramétrage</a>
           <div class="dropdown-menu">
@@ -69,7 +64,10 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         @if (Auth::user())
-        <li class="nav-item">
+        <li class="nav-item my-auto mr-2">
+          <p class="mb-0">{{Auth::user()->name. ' est connecté.'}}</p>
+        </li>  
+        <li class="nav-item my-auto">
           <form method="post" action="{{route('logout')}}">
             @csrf
             <button type="submit" class="btn">Déconnexion</button>

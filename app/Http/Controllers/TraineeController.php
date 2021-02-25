@@ -10,6 +10,7 @@ use App\Models\Traineeship;
 use Illuminate\Http\Request;
 use App\Manager\TraineeManager;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 
 class TraineeController extends Controller
@@ -43,7 +44,7 @@ class TraineeController extends Controller
     public function create()
     {
        return view('trainee.create', [
-           'promos' => Promo::All(),
+           'promos' => Promo::where('active', true)->get(),
            'skills' => Skill::all(),
                   ]);
     }
@@ -90,7 +91,7 @@ class TraineeController extends Controller
     {
         return view('trainee.edit', [
             'trainee'=> $trainee,
-            'promos' => Promo::All(),
+            'promos' => Promo::where('active', true)->get(),
             'skills' => Skill::all(),
                    ]);
     }
@@ -115,7 +116,7 @@ class TraineeController extends Controller
 
         if(Auth::user()->role==='ADMIN')
         {
-            return redirect()->route('trainees.index')->with('success', "Le stagiaire a été mis à jour!!!");
+            return redirect()->route('admins.show',$trainee->id)->with('success', "Le stagiaire a été mis à jour!!!");
         }
         else
         {
@@ -132,7 +133,8 @@ class TraineeController extends Controller
      */
     public function destroy(Trainee $trainee)
     {
-        $trainee->delete();
-        return redirect()->route('trainees.index')->with('success', "Le stagiaire a été supprimé !");
+        $user=User::where('id', $trainee->user_id)->first();
+        $user->delete();
+        return redirect()->route('admins.index')->with('success', "Le stagiaire a été supprimé !");
     }
 }

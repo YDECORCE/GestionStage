@@ -35,7 +35,7 @@ Route::get('/admin/trainees/create', [TraineeController::class, 'create'])->name
 
 Route::post('/admin/trainees/store', [TraineeController::class, 'store'])->name('trainees.store');
 
-Route::get('/admin/trainees', [TraineeController::class, 'index'])->name('trainees.index');
+// Route::get('/admin/trainees', [TraineeController::class, 'index'])->name('trainees.index'); supprimé par simplification
 
 Route::get('/trainees/{trainee}/show', [TraineeController::class, 'show'])->name('trainees.show');
 
