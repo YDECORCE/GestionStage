@@ -20,8 +20,8 @@ Skills|Paramêtrage
             <input type="text" name="name" class="form-control" placeholder="Compétence" />
         </div>
         <div class="form-group">
-            <label>Pictogramme récupéré sur le site FontAwesome (type 'fab fa-picto')</label>
-            <input type="text" name="icon" class="form-control" placeholder="Icone Font Awesome" />
+            <label>Pictogramme récupéré sur le site <a href="https://fontawesome.com/" target="blanck">FontAwesome</a> (type 'fab fa-picto')</label>
+            <input type="text" name="icon" class="form-control" placeholder="Code Icone Font Awesome" />
         </div>
         <div class="d-flex justify-content-center mb-5">
             <button type="submit" class="btn btn-primary">Créer</button>

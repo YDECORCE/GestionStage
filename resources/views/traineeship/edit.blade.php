@@ -31,10 +31,11 @@ Suivi Candidature {{$traineeship->trainee->name}}
         <div class="form-group">
             <label>Précisez le status de votre candidature</label>
             <select name="status" id="" class="form-control" >
-                <option value="En Attente">En attente</option>
-                <option value="Relancée">Entreprise Relancée</option>
-                <option value="Positive">Réponse positive de l'entreprise</option>
-                <option value="Négative">Réponse négative de l'entreprise</option>
+                <option value="En Attente" {{ $traineeship->status === "En Attente" ? 'selected' : ''}}>En attente</option>
+                <option value="Relancée" {{ $traineeship->status === "Relancée" ? 'selected' : ''}}>Entreprise Relancée</option>
+                <option value="Positive" {{ $traineeship->status === "Positive" ? 'selected' : ''}}>Réponse positive de l'entreprise</option>
+                <option value="Négative" {{ $traineeship->status === "Négative" ? 'selected' : ''}}>Réponse négative de l'entreprise</option>
+                <option value="Déclinée" {{ $traineeship->status === "Déclinée" ? 'selected' : ''}}>J'ai décliné l'offre de stage</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer mon suivi</button>

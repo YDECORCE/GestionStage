@@ -16,10 +16,20 @@ class MainController extends Controller
                     ->select('trainees.*')
                     ->orderBy('name', 'asc')
                     ->paginate(6);
-        // $traineeswithship=[];
-        // foreach ($trainees as $trainee){
-        //     if
-        // }
+        $traineeswithship=[];
+        foreach ($trainees as $trainee){
+            foreach ($trainee->traineeships as $stage){
+                if ($stage->status==="Positive"){
+                    array_push($traineeswithship, $trainee->id);
+                }
+            }
+        }
+        $trainees=Trainee::join('promos', 'trainees.promo_id', '=', 'promos.id')
+                    ->where('promos.active', true)
+                    ->whereNotIn('trainees.id', $traineeswithship)
+                    ->select('trainees.*')
+                    ->orderBy('name', 'asc')
+                    ->paginate(6);
         return view('home', [
             'trainees' => $trainees,
             'promos' => Promo::all(),
