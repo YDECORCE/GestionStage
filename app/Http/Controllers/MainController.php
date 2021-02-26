@@ -15,7 +15,7 @@ class MainController extends Controller
                     ->where('promos.active', true)
                     ->select('trainees.*')
                     ->orderBy('name', 'asc')
-                    ->paginate(6);
+                    ->get();
         $traineeswithship=[];
         foreach ($trainees as $trainee){
             foreach ($trainee->traineeships as $stage){
@@ -32,7 +32,6 @@ class MainController extends Controller
                     ->paginate(6);
         return view('home', [
             'trainees' => $trainees,
-            'promos' => Promo::all(),
         ]);
     }
 

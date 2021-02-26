@@ -29,11 +29,7 @@ class TraineeController extends Controller
      */
     public function index()
     {
-        $trainees= Trainee::paginate(6);
-        return view('trainee.index', [
-            'trainees' => $trainees,
-            'promos' => Promo::All(),
-        ]);
+        //
     }
 
     /**
