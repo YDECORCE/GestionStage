@@ -9,6 +9,16 @@ class ContactManager
 {
     public function build(CContact $c_contact, Request $request)
     {
+        $datavalidate=$request->validate([
+            'name' => 'required',
+            'firstname' => 'required',
+            'function' => 'required',
+            'phonenumber' => 'required',
+            'email' => 'required|email',
+            ]); 
+
+
+
         $c_contact->name =$request->input('name');
         $c_contact->firstname =$request->input('firstname');
         $c_contact->function =$request->input('function');

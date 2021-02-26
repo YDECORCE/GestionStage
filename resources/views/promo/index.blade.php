@@ -5,7 +5,12 @@ Promo|Paramêtrage
 @endsection
 
 @section('content')
-
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="col-12">
     <h2>Créer une nouvelle Promotion</h2>
     <form action="{{route('promos.store')}}" method="post">

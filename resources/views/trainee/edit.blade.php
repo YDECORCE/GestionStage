@@ -5,7 +5,12 @@
 @endsection
 
 @section('content')
-
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <h1>{{'Editer :'.$trainee->firstname.' '.$trainee->name}}</h1>
@@ -70,7 +75,7 @@
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="{{ $trainee->email}}" />
+                    <input type="email" name="email" class="form-control" value="{{ $trainee->email}}" />
                 </div>
             </div>
             <div class="col-12 col-sm-4">
@@ -84,19 +89,19 @@
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Lien vers Portfolio</label>
-                    <input type="text" name="portfolio" class="form-control" value="{{ $trainee->portfolio}}" />
+                    <input type="url" name="portfolio" class="form-control" value="{{ $trainee->portfolio}}" />
                 </div>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Lien Github</label>
-                    <input type="text" name="github" class="form-control" value="{{ $trainee->github}}" />
+                    <input type="url" name="github" class="form-control" value="{{ $trainee->github}}" />
                 </div>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Lien vers CV</label>
-                    <input type="text" name="cv" class="form-control" value="{{ $trainee->cv}}" />
+                    <input type="url" name="cv" class="form-control" value="{{ $trainee->cv}}" />
                 </div>
             </div>
         </div>

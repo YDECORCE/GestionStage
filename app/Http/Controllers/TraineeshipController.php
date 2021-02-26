@@ -38,6 +38,11 @@ class TraineeshipController extends Controller
      */
     public function store(Request $request)
     {
+        $datavalidate=$request->validate([
+                'compagny_id' => 'required',
+                'dateofdemand' => 'required'
+        ]);
+
         $traineeship=new Traineeship;
         $traineeship->trainee_id = $request->input('trainee_id');
         $traineeship->compagny_id = $request->input('compagny_id');

@@ -26,6 +26,10 @@ class PromoController extends Controller
      */
     public function store(Request $request)
     {
+        $datavalidate=$request->validate([
+            'year'=>'required',
+            'city'=>'required'
+        ]);
         Promo::create([
             'year'=> $request->input('year'),
             'city'=> $request->input('city')
@@ -49,7 +53,7 @@ class PromoController extends Controller
         $promo->update([
             'active'=>$request->input('active'),
         ]);
-        return redirect()->route('promos.index');
+        return redirect()->route('promos.index')->with('success', "La promotion a été mise à jour");
     }
 
 }

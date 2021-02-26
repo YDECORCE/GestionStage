@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="container justify-content-center">  
     <div class="col-12 justify-content-center">
        <h3>{{$trainee->firstname}}, faisons le point sur ta recherche de stage...</h3>

@@ -28,14 +28,14 @@ Auth::routes();
 // Routes du main Controlleur : affichage page d'accueil sans authentification
 Route::get('/', [MainController::class, 'home'])->name('home');
 Route::get('trainees/{trainee:id}',[MainController::class, 'show'])->name('trainee');
-Route::get('/admin/trainees/create', [TraineeController::class, 'create'])->name('trainees.create');
-Route::post('/admin/trainees/store', [TraineeController::class, 'store'])->name('trainees.store');
+
 
 
 // Routes soumises au Middleware ('admin') limitée au user ayant le role ADMIN
 Route::middleware('admin')->group(function(){
     Route::delete('admin/trainees/{trainee}/destroy', [TraineeController::class, 'destroy'])->name('trainees.destroy');
     Route::delete('compagnies/{compagny}/destroy', [CompagnyController::class, 'destroy'])->name('compagnies.destroy');
+    Route::delete('c_contacts/{cContact}/destroy',[CContactController::class, 'destroy'])->name('c_contacts.destroy');
     Route::get('c_contacts/{compagny}/index', [CContactController::class, 'index'])->name('c_contacts.index');
     Route::get('c_contacts/{compagny}/create', [CContactController::class, 'create'])->name('c_contacts.create');
     Route::post('c_contacts/store', [CContactController::class, 'store'])->name('c_contacts.store');
@@ -54,7 +54,8 @@ Route::middleware('admin')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('compagny', [MainController::class, 'compagny'])->name('compagnies'); 
     Route::get('compagny/{compagny:id}', [MainController::class, 'showcompagny'])->name('compagny');
-    
+    Route::get('/admin/trainees/create', [TraineeController::class, 'create'])->name('trainees.create');
+    Route::post('/admin/trainees/store', [TraineeController::class, 'store'])->name('trainees.store');
     Route::get('trainees/{trainee}/show', [TraineeController::class, 'show'])->name('trainees.show'); 
     Route::get('trainees/{trainee}/edit', [TraineeController::class, 'edit'])->name('trainees.edit');
     Route::put('trainees/{trainee}/update', [TraineeController::class, 'update'])->name('trainees.update');

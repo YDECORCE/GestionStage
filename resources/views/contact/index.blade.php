@@ -36,7 +36,7 @@ Admin|Entreprises
                 <td class="d-flex">
                    <a href="{{route('c_contacts.edit', $contact->id)}}" class="btn btn-warning mx-3">Editer</a>
                     <button type="button" class="btn btn-danger mx-3" onclick="document.getElementById('modal-open-{{$contact->id}}').style.display='block'">Supprimer</button>
-                    <form action="#" method="POST">
+                    <form action="{{route('c_contacts.destroy', $contact->id)}}" method="POST">
                       @csrf
                       @method("DELETE")
                       <div class="modal" id="modal-open-{{$contact->id}}">

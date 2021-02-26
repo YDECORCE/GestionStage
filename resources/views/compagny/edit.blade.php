@@ -5,6 +5,12 @@ Edition : {{$compagny->name}}
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <h1>Edition : {{$compagny->name}}</h1>
@@ -52,13 +58,13 @@ Edition : {{$compagny->name}}
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="{{$compagny->email}}" />
+                    <input type="email" name="email" class="form-control" value="{{$compagny->email}}" />
                 </div>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="form-group">
                     <label>Site Web</label>
-                    <input type="text" name="website" class="form-control" value="{{$compagny->website}}" />
+                    <input type="url" name="website" class="form-control" value="{{$compagny->website}}" />
                 </div>
             </div>
         </div>

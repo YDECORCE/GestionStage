@@ -104,6 +104,7 @@ class CContactController extends Controller
      */
     public function destroy(CContact $cContact)
     {
-        //
+        $cContact->delete();
+        return redirect()->route('c_contacts.index',$cContact->compagny_id)->with('success', "Le contact a été supprimé !");
     }
 }

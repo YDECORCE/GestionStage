@@ -9,6 +9,17 @@ Class CompagnyManager
 {
     public function build(Compagny $company, Request $request)
     {
+        $datavalidate=$request->validate([
+            'name' => 'required',
+            'adress' => 'required',
+            'postalcode' => 'required',
+            'city' => 'required',
+            'phonenumber' => 'required',
+            'email' => 'required|email',
+            'website' => 'required|url',
+            ]);   
+
+
         $company->name =$request->input('name');
         $company->adress =$request->input('adress');
         $company->postalcode =$request->input('postalcode');

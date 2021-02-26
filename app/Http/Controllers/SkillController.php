@@ -37,7 +37,15 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datavalidate=$request->validate([
+            'name'=>'required',
+            'icon'=>'required'
+        ]);
+        Skill::create([
+            'name'=> $request->input('name'),
+            'icon'=> $request->input('icon')
+        ]);
+        return redirect()->route('skills.index')->with('success', "La compétence a été enregistrée!!!");
     }
 
     /**

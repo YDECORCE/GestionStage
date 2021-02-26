@@ -5,18 +5,23 @@ Skills|Paramêtrage
 @endsection
 
 @section('content')
-
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="col-12">
     <h2>Créer une nouvelle compétence</h2>
     <form action="{{route('skills.store')}}" method="post">
         @csrf
         <div class="form-group">
             <label>Nom de la Compétence</label>
-            <input type="text" name="skill" class="form-control" placeholder="Compétence" />
+            <input type="text" name="name" class="form-control" placeholder="Compétence" />
         </div>
         <div class="form-group">
             <label>Pictogramme récupéré sur le site FontAwesome (type 'fab fa-picto')</label>
-            <input type="text" name="city" class="form-control" placeholder="Icone Font Awesome" />
+            <input type="text" name="icon" class="form-control" placeholder="Icone Font Awesome" />
         </div>
         <div class="d-flex justify-content-center mb-5">
             <button type="submit" class="btn btn-primary">Créer</button>

@@ -10,6 +10,20 @@ Class TraineeManager
 {
     public function build(Trainee $trainee, Request $request, $imgchange)
     {
+    $datavalidate=$request->validate([
+        'name' => 'required',
+        'firstname' => 'required',
+        'adress' => 'required',
+        'postalcode' => 'required',
+        'city' => 'required',
+        'phonenumber' => 'required',
+        'email' => 'required|email',
+        'portfolio' => 'required|url',
+        'github' => 'required|url',
+        'cv' => 'required|url',
+        'mobilityzone' => 'required',
+        ]);   
+         
     if($imgchange===true)    
     {
     // script d'upload image Avatar

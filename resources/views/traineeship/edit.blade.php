@@ -5,8 +5,9 @@ Suivi Candidature {{$traineeship->trainee->name}}
 @endsection
 
 @section('content')
+
 <div class="container justify-content-center">
-    {{-- <div class="col-12 "><p>{{$traineeship->trainee->name}}</p></div>  --}}
+    
     <div class="col-12 mt-2">
         <h1>Fiche de suivi de candidature</h1>
         <h3>Entreprise : {{$traineeship->compagny->name}}</h3>

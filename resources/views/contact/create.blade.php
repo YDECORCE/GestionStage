@@ -5,6 +5,12 @@ Nouveau Contact
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h5>L'ensemble des champs doit être complété !!!</h5>
+    </div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <h1>Ajouter un nouveau contact</h1>
@@ -47,7 +53,7 @@ Nouveau Contact
             <div class="col-12 col-sm-6">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="email du contact" />
+                    <input type="email" name="email" class="form-control" placeholder="email du contact" />
                 </div>
             </div>
             
