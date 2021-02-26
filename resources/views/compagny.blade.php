@@ -28,36 +28,57 @@
     <div class="col-12 justify-content-center pt-5">
         <h3>Contacts</h3>
         <div>
-        <table class="m-0">
-            <thead>
-                <tr class="table-active">
-                    <th scope="col" style="width:15%">Prénom</th>
-                    <th scope="col" style="width:15%">Nom</th>
-                    <th scope="col" style="width:30%">Fonction</th>
-                    <th scope="col" style="width:20%">Téléphone</th>
-                    <th scope="col" style="width:20%">Email</th>
-                  </tr>   
-            </thead>
-            <tbody>
-                @foreach ($compagny->c_contacts as $contact)
-                <tr class="table-secondary">
-                    <td>{{$contact->firstname}}</td>
-                    <td>{{$contact->name}}</td>
-                    <td>{{$contact->function}}</td>
-                    <td>{{$contact->phonenumber}}</td>
-                    <td>{{$contact->email}}</td>
-                </tr> 
-                @endforeach
-               
-            </tbody>
-        </table>
-    </div>
+            <table class="m-0">
+                <thead>
+                    <tr class="table-active">
+                        <th scope="col" style="width:15%">Prénom</th>
+                        <th scope="col" style="width:15%">Nom</th>
+                        <th scope="col" style="width:30%">Fonction</th>
+                        <th scope="col" style="width:20%">Téléphone</th>
+                        <th scope="col" style="width:20%">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($compagny->c_contacts as $contact)
+                    <tr class="table-secondary">
+                        <td>{{$contact->firstname}}</td>
+                        <td>{{$contact->name}}</td>
+                        <td>{{$contact->function}}</td>
+                        <td>{{$contact->phonenumber}}</td>
+                        <td>{{$contact->email}}</td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-12 justify-content-center pt-5">
         <h3>Les anciens qui ont fait leur stage dans cette entreprise</h3>
-        <div>
+        {{-- <div>
         Développement à venir select des stagiaires dont le Traineeshipsearch est positif avec cette entreprise.
-    </div>
+        </div> --}}
+        <?php $counter=0 ?>
+        @if (count($compagny->traineeships)>0)
+                @foreach ($compagny->traineeships as $stage)
+                    @if ($stage->status==="Positive")
+                        <?php $counter++ ?>
+                        <div class="col-12 mt-3 d-flex">
+                        <span class="badge badge-pill badge-warning mr-5">
+                                {{$stage->trainee->promo->year. ' / '.$stage->trainee->promo->city}}
+                        </span>
+                        <a href="{{route('trainee',$stage->trainee->id)}}">
+                            <h5 class="my-0">{{$stage->trainee->firstname.' '.$stage->trainee->name}}</h5>
+                        </a>
+                        </div>
+                    @endif
+                @endforeach
+        @endif
+        @if ($counter===0)
+            <p> Pas encore d'ancien stagiaire dans cette entreprise </p>
+        @endif
+
+
     </div>
 </div>
 
