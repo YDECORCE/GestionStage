@@ -25,17 +25,17 @@
                 {{ $compagny->website }}</h5>
         </div>
     </div>
-    <div class="col-12 justify-content-center pt-5">
+    <div class="col-12 justify-content-center pt-5 w-100">
         <h3>Contacts</h3>
         <div>
-            <table class="m-0">
+            <table class="m-0 w-75">
                 <thead>
                     <tr class="table-active">
-                        <th scope="col" style="width:15%">Prénom</th>
-                        <th scope="col" style="width:15%">Nom</th>
-                        <th scope="col" style="width:30%">Fonction</th>
-                        <th scope="col" style="width:20%">Téléphone</th>
-                        <th scope="col" style="width:20%">Email</th>
+                        <th scope="col" style="min-width:15%">Prénom</th>
+                        <th scope="col" style="min-width:15%">Nom</th>
+                        <th scope="col" style="min-width:30%">Fonction</th>
+                        <th scope="col" style="min-width:20%">Téléphone</th>
+                        <th scope="col" style="min-width:20%">Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,9 +55,7 @@
     </div>
     <div class="col-12 justify-content-center pt-5">
         <h3>Les anciens qui ont fait leur stage dans cette entreprise</h3>
-        {{-- <div>
-        Développement à venir select des stagiaires dont le Traineeshipsearch est positif avec cette entreprise.
-        </div> --}}
+        
         <?php $counter=0 ?>
         @if (count($compagny->traineeships)>0)
                 @foreach ($compagny->traineeships as $stage)

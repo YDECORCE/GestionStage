@@ -41,4 +41,5 @@ class MainController extends Controller
             'compagny' => $compagny,
         ]);
     }
+
 }

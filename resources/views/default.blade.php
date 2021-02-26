@@ -6,7 +6,7 @@ Under Construction
 
 @section('content')
 <div class="container d-flex justify-content-center">  
-    <img src="{{asset('img/under-construction.png')}}" alt="profil" style="height:80vh; width:auto">
+    <img src="{{asset('img/UnderConstruction.png')}}" alt="profil" style="height:80vh; width:auto">
 </div>
         
 
